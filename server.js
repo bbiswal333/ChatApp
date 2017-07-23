@@ -3,11 +3,16 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-var port = process.env.PORT || 3000;
+//var port = process.env.PORT || 3000;
 
-server.listen(port, function () {
-  console.log('Server listening at port %d', port);
-});
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+
+// server.listen(port, function () {
+//   console.log('Server listening at port %d', port);
+// });
+server.listen(port, ip);
+console.log('Server running on http://%s:%s', ip, port);
 
 // Routing
 app.use(express.static(__dirname + '/public'));
