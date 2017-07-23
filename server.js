@@ -5,7 +5,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 //var port = process.env.PORT || 3000;
 
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT;
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000;
 var ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 // server.listen(port, function () {
