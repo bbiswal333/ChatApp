@@ -11,7 +11,7 @@ var ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 // server.listen(port, function () {
 //   console.log('Server listening at port %d', port);
 // });
-server.listen(port, ip);
+app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
 
 // Routing
